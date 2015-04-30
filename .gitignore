@@ -1,0 +1,16 @@
+## Directory-based project format
+.idea
+RFID_REWRITE.iml
+## File-based project format
+*.ipr
+*.iws
+*.iml
+## Additional for IntelliJ
+out/
+gen/
+# Release package
+idea-gitignore.jar
+resources/templates.list
+build/
+build.properties
+junit*.properties
