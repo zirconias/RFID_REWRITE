@@ -9,7 +9,7 @@
     <name>RFID</name>
 
     <properties>
-        <spring.version>4</spring.version>
+        <spring.version>4.1.2</spring.version>
     </properties>
 
     <packaging>war</packaging>
