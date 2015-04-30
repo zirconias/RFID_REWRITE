@@ -6,7 +6,7 @@
     <groupId>com.icosnet.dev</groupId>
     <artifactId>RFID</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <name>RFID</name>
 
 
 </project>
