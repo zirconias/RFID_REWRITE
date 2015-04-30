@@ -1,6 +1,5 @@
 package com.icosnet.rfid.domain.model;
 
-import static javax.persistence.GenerationType.IDENTITY;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import javax.persistence.*;
