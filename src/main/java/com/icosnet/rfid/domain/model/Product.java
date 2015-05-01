@@ -13,23 +13,21 @@ import javax.persistence.Version;
 @Table(name = "PRODUCT")
 public class Product extends AbstractEntity {
 
+    @Column(name = "LIBELLE", nullable = false)
     private String libelle;
+    @Column(name = "DESCR", nullable = false)
     private String descr;
 
-    @Column(name = "LIBELLE", nullable = false)
     public String getLibelle() {
         return libelle;
     }
-
     public void setLibelle(String libelle) {
         this.libelle = libelle;
     }
 
-    @Column(name = "DESCR", nullable = false)
     public String getDescr() {
         return descr;
     }
-
     public void setDescr(String descr) {
         this.descr = descr;
     }

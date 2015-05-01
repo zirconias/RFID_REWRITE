@@ -4,6 +4,8 @@ import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.icosnet.rfid.domain.model.Product;
 import com.icosnet.rfid.domain.repository.PersistenceConfig;
 import com.icosnet.rfid.domain.repository.ProductRepository;
+import com.icosnet.rfid.service.ProductService;
+import com.icosnet.rfid.service.impl.ProductServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
