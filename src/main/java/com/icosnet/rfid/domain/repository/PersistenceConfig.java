@@ -46,7 +46,7 @@ public class PersistenceConfig {
     private Environment env;
 
 
-    @Bean(destroyMethod = "close")
+    @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(env.getRequiredProperty(PROPERTY_NAME_DATABASE_DRIVER));
@@ -64,6 +64,7 @@ public class PersistenceConfig {
 
         HibernateJpaVendorAdapter hibernateJpaVendorAdapter =
                 new HibernateJpaVendorAdapter();
+        hibernateJpaVendorAdapter.setGenerateDdl(true);
         entityManagerFactoryBean.setJpaVendorAdapter(hibernateJpaVendorAdapter);
 
         final Properties jpaProperties=new Properties();
@@ -71,8 +72,6 @@ public class PersistenceConfig {
                 env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_DIALECT));
         jpaProperties.setProperty(PROPERTY_NAME_HIBERNATE_SHOW_SQL,
                 env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_SHOW_SQL));
-        jpaProperties.setProperty(PROPERTY_NAME_HIBERNATE_hbm2ddl,
-                env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_hbm2ddl));
 
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
         entityManagerFactoryBean.setPackagesToScan(env.getRequiredProperty(PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN));
