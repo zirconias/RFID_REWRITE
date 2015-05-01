@@ -32,6 +32,4 @@ public class Product extends AbstractEntity {
         this.descr = descr;
     }
 
-    @Version
-    private long version;
 }

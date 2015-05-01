@@ -25,7 +25,7 @@ public abstract class AbstractEntity implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
+    @Version
     @Column(name = "CREATION_DATE", nullable = false)
     public Timestamp getCreationDate() {
         return creationDate;

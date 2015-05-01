@@ -26,8 +26,6 @@ public class Magasin extends AbstractEntity {
     @Column(name = "LOCATION")
     private String localisation;
 
-    @Version
-    private long version;
 
     public String getLibelle() {
         return libelle;
