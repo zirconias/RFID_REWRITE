@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.icosnet.rfid.domain.model.Product;
 import com.icosnet.rfid.domain.repository.ProductRepository;
 import com.icosnet.rfid.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
@@ -43,5 +44,11 @@ public class ProductServiceImpl implements ProductService{
     @Transactional(readOnly=true)
     public Page<Product> findAllByPage(Pageable pageable) {
         return productRepository.findAll(pageable);
+    }
+
+    //inection by constructor
+    @Autowired
+    public void setProductRepository(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 }

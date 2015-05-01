@@ -4,6 +4,7 @@ package com.icosnet.rfid.domain.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 /**
  * Created by xirconias on 30/04/15.
@@ -32,4 +33,7 @@ public class Product extends AbstractEntity {
     public void setDescr(String descr) {
         this.descr = descr;
     }
+
+    @Version
+    private long version;
 }
