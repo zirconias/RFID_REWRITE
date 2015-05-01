@@ -12,21 +12,12 @@ import javax.persistence.*;
 @Table(name = "MAGASIN")
 public class Magasin extends AbstractEntity {
 
-    @Column(name = "LIBELLE", nullable = false)
     private String libelle;
-
-    @Column(name = "DESCR")
     private String descr;
-
-
-    //@Enumerated(EnumType.STRING)
-    @Convert(converter = MagasinConverter.class)
     private MagasinType type;
-
-    @Column(name = "LOCATION")
     private String localisation;
 
-
+    @Column(name = "LIBELLE", nullable = false)
     public String getLibelle() {
         return libelle;
     }
@@ -35,6 +26,7 @@ public class Magasin extends AbstractEntity {
         this.libelle = libelle;
     }
 
+    @Column(name = "DESCR")
     public String getDescr() {
         return descr;
     }
@@ -43,6 +35,8 @@ public class Magasin extends AbstractEntity {
         this.descr = descr;
     }
 
+    //@Enumerated(EnumType.STRING)
+    @Convert(converter = MagasinConverter.class)
     public MagasinType getType() {
         return type;
     }
@@ -51,6 +45,7 @@ public class Magasin extends AbstractEntity {
         this.type = type;
     }
 
+    @Column(name = "LOCATION")
     public String getLocalisation() {
         return localisation;
     }

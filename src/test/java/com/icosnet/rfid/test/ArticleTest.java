@@ -55,7 +55,7 @@ public class ArticleTest {
         article.setNumSerie("xsss111sss");
         article.setBlocked(false);
         article.setTaken(true);
-        Magasin mag=magasinRepository.findOne(3L);
+        Magasin mag=magasinRepository.findOne(1L);
         article.setMagasin(mag);
         Product product=productRepository.findOne(22L);
         article.setProduct(product);

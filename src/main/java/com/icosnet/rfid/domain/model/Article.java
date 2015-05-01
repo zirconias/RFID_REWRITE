@@ -13,12 +13,7 @@ public class Article extends AbstractEntity {
 
     private String idRFID;
     private String numSerie;
-
-    @JoinColumn(name = "ID_PRODUCT")
     private Product product;
-
-
-    @JoinColumn(name = "ID_MAGASIN")
     private Magasin magasin;
 
     @Column(name = "TAKEN", nullable = false)
@@ -46,6 +41,7 @@ public class Article extends AbstractEntity {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_PRODUCT")
     public Product getProduct() {
         return product;
     }
@@ -55,6 +51,7 @@ public class Article extends AbstractEntity {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_MAGASIN")
     public Magasin getMagasin() {
         return magasin;
     }

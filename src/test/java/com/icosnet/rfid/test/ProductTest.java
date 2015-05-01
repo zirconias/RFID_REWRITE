@@ -39,6 +39,15 @@ public class ProductTest {
     private ProductRepository repository;
 
     @Test
+    public void add_Product() {
+        Product product = new Product();
+        product.setLibelle("product 1");
+        product.setDescr("descr product 1");
+        product.setCreationDate(new java.sql.Timestamp(new java.util.Date().getTime()));
+        assertThat(product, is(repository.save(product)));
+    }
+
+    @Test
     public void search_Product() {
         Product product = repository.findOne(11L);
         assertThat(product.getDescr(), is("xxx"));
