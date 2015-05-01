@@ -11,6 +11,6 @@
     <context:annotation-config/>
     <context:component-scan base-package="com.icosnet.rfid"/>
 
-    <jpa:repositories base-package="com.icosnet.rfid.domain.repository" />
+    <jpa:repositories base-package="com.icosnet.rfid" />
 
 </beans>
