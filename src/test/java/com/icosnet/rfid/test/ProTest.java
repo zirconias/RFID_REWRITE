@@ -38,4 +38,16 @@ public class ProTest {
         Product product = repository.findOne(11L);
         assertThat(product.getDescr(), is("xxx"));
     }
+
+    @Test
+    public void findByDescr() {
+        Product product = repository.findByDescr("aa");
+        assertThat(product.getLibelle(), is("xx"));
+    }
+
+    @Test
+    public void findByDescrAndLibelle(){
+        Product product = repository.findByDescrAndLibelle("aa","xx");
+        assertThat(product.getLibelle(), is("xx"));
+    }
 }
