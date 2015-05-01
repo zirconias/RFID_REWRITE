@@ -1,11 +1,9 @@
 package com.icosnet.rfid.domain.model;
 
+import com.icosnet.rfid.util.MagasinConverter;
 import com.icosnet.rfid.util.MagasinType;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Version;
+import javax.persistence.*;
 
 /**
  * Created by xirconias on 01/05/15.
@@ -16,9 +14,15 @@ public class Magasin extends AbstractEntity {
 
     @Column(name = "LIBELLE", nullable = false)
     private String libelle;
+
     @Column(name = "DESCR")
     private String descr;
+
+
+    @Convert(converter = MagasinConverter.class)
     private MagasinType type;
+
+    @Column(name = "LOCATION")
     private String localisation;
 
     @Version

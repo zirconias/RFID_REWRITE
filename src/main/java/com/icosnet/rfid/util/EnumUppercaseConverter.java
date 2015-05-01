@@ -16,7 +16,7 @@ public abstract class EnumUppercaseConverter <E extends Enum<E>>  implements Att
 
     @Override
     public String convertToDatabaseColumn(E e) {
-        return e.name();
+        return e.name().toString();
     }
 
     @Override
