@@ -14,11 +14,10 @@ public class Article extends AbstractEntity {
     private String idRFID;
     private String numSerie;
 
-    @ManyToOne
     @JoinColumn(name = "ID_PRODUCT")
     private Product product;
 
-    @ManyToOne
+
     @JoinColumn(name = "ID_MAGASIN")
     private Magasin magasin;
 
@@ -46,6 +45,7 @@ public class Article extends AbstractEntity {
         this.numSerie = numSerie;
     }
 
+    @ManyToOne(fetch = FetchType.LAZY)
     public Product getProduct() {
         return product;
     }
@@ -54,6 +54,7 @@ public class Article extends AbstractEntity {
         this.product = product;
     }
 
+    @ManyToOne(fetch = FetchType.LAZY)
     public Magasin getMagasin() {
         return magasin;
     }
