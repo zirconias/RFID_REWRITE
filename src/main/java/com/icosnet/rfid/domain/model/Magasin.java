@@ -19,6 +19,7 @@ public class Magasin extends AbstractEntity {
     private String descr;
 
 
+    //@Enumerated(EnumType.STRING)
     @Convert(converter = MagasinConverter.class)
     private MagasinType type;
 
