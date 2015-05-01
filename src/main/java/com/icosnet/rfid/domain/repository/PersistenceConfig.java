@@ -1,6 +1,5 @@
 package com.icosnet.rfid.domain.repository;
 
-import org.hibernate.ejb.HibernatePersistence;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -11,7 +10,6 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.hibernate.jpa.HibernatePersistenceProvider;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
@@ -20,13 +18,12 @@ import java.util.Properties;
 /**
  * Created by xirconias on 01/05/15.
  */
+
 /**
-*
-* @EnableJpaRepositories(
-        entityManagerFactoryRef = "barEntityManagerFactory",
-        transactionManagerRef = "barTransactionManager",
-        basePackages = { "com.sctrcd.multidsdemo.integration.repositories.bar" })
-*/
+ * @EnableJpaRepositories( entityManagerFactoryRef = "barEntityManagerFactory",
+ * transactionManagerRef = "barTransactionManager",
+ * basePackages = { "com.sctrcd.multidsdemo.integration.repositories.bar" })
+ */
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:application.properties")
@@ -40,7 +37,7 @@ public class PersistenceConfig {
     private static final String PROPERTY_NAME_HIBERNATE_DIALECT = "hibernate.dialect";
     private static final String PROPERTY_NAME_HIBERNATE_SHOW_SQL = "hibernate.show_sql";
     private static final String PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN = "entitymanager.packages.to.scan";
-    private static final String PROPERTY_NAME_HIBERNATE_hbm2ddl= "hibernate.hbm2ddl.auto";
+    private static final String PROPERTY_NAME_HIBERNATE_hbm2ddl = "hibernate.hbm2ddl.auto";
 
     @Resource
     private Environment env;
@@ -67,7 +64,7 @@ public class PersistenceConfig {
         hibernateJpaVendorAdapter.setGenerateDdl(true);
         entityManagerFactoryBean.setJpaVendorAdapter(hibernateJpaVendorAdapter);
 
-        final Properties jpaProperties=new Properties();
+        final Properties jpaProperties = new Properties();
         jpaProperties.setProperty(PROPERTY_NAME_HIBERNATE_DIALECT,
                 env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_DIALECT));
         jpaProperties.setProperty(PROPERTY_NAME_HIBERNATE_SHOW_SQL,
