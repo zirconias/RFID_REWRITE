@@ -20,10 +20,10 @@ public class TransfertLine extends AbstractEntity  {
         this.mootif = mootif;
     }
 
-    /*private Article article;
+    private Article article;
     //private Transfert transfert;
 
-    @OneToOne (cascade=CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name="ARTICLE_ID")
     public Article getArticle() {
         return article;
@@ -32,7 +32,7 @@ public class TransfertLine extends AbstractEntity  {
     public void setArticle(Article article) {
         this.article = article;
     }
-*/
+
 /*
     @ManyToOne
     public Transfert getTransfert() {

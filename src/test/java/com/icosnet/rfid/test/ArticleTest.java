@@ -51,20 +51,20 @@ public class ArticleTest {
 
         Article article = new Article();
         article.setCreationDate(new java.sql.Timestamp(new java.util.Date().getTime()));
-        article.setIdRFID("xxxx111xxx");
-        article.setNumSerie("xsss111sss");
+        article.setIdRFID("tyu");
+        article.setNumSerie("uyt");
         article.setBlocked(false);
         article.setTaken(true);
         Magasin mag=magasinRepository.findOne(1L);
         article.setMagasin(mag);
-        Product product=productRepository.findOne(22L);
+        Product product=productRepository.findOne(2L);
         article.setProduct(product);
         assertThat(article,is(repository.save(article)));
     }
 
     @Test
     public void findArticlesByProduct(){
-        Product product=productRepository.findOne(11L);
+        Product product=productRepository.findOne(1L);
         List<Article> articles =repository.findArticlesByProduct(product);
         assertThat(articles.size(),is(1));
     }

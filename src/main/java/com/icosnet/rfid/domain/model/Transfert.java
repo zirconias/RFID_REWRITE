@@ -51,7 +51,7 @@ public class Transfert extends AbstractEntity  {
         this.motif = motif;
     }
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = false)
+    @OneToOne
     @JoinColumn(name = "MAGASIN_ORIGIN")
     public Magasin getMagasinOrigin() {
         return magasinOrigin;
@@ -60,7 +60,7 @@ public class Transfert extends AbstractEntity  {
         this.magasinOrigin = magasinOrigin;
     }
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = false)
+    @OneToOne
     @JoinColumn(name = "MAGASIN_DESTINATION")
     public Magasin getMagasinDestination() {
         return magasinDestination;
