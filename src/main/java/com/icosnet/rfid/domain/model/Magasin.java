@@ -17,7 +17,6 @@ public class Magasin extends AbstractEntity {
     private String descr;
     private MagasinType type;
     private String localisation;
-    private String localisation2;
 
     protected Magasin(){}
 
