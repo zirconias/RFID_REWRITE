@@ -1,7 +1,7 @@
 package com.icosnet.rfid.service.impl;
 
 import com.icosnet.rfid.domain.model.TransfertLine;
-import com.icosnet.rfid.domain.repository.TransfertLineRepository;
+
 import com.icosnet.rfid.service.TransfertLineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by xirconias on 02/05/15.
  */
-public class TransfertLineServiceImpl implements TransfertLineService {
+/*public class TransfertLineServiceImpl implements TransfertLineService {
 
     @Autowired
     TransfertLineRepository repository;
@@ -37,4 +37,4 @@ public class TransfertLineServiceImpl implements TransfertLineService {
     public Page<TransfertLine> findAllByPage(Pageable pageable) {
         return repository.findAll(pageable);
     }
-}
+}*/

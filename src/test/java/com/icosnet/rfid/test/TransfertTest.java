@@ -41,8 +41,8 @@ public class TransfertTest {
     @Autowired
     TransfertRepository transfertRepository;
 
-    @Autowired
-    TransfertLineRepository transfertLineRepository;
+    //@Autowired
+   // TransfertLineRepository transfertLineRepository;
 
     @Autowired
     ArticleRepository articleRepository;
@@ -72,27 +72,27 @@ public class TransfertTest {
         article.setMagasin(magasinTo);
         articleRepository.save(article);
 
-        transfertLineRepository.save(transfertLine);
+      //  transfertLineRepository.save(transfertLine);
 
         transfertRepository.save(transfert);
     }
 
     @Test
     public void add_transfert(){
-        Magasin magasinTO= magasinRepository.findOne(1L);
-        Magasin magasinFrom=magasinRepository.findOne(2L);
-        Article article = articleRepository.findOne(1L);
+        Magasin magasinTO= magasinRepository.findOne(2L);
+        Magasin magasinFrom=magasinRepository.findOne(1L);
+        Article article = articleRepository.findOne(2L);
         Transfert transfert=new Transfert();
-        transfert.setBonTransfer("tesst2 ");
+        transfert.setBonTransfer("without 2");
         transfert.setCreationDate(time);
         transfert.setTransfertDate(new DateTime());
 
         transfert.setMagasinOrigin(magasinFrom);
         transfert.setMagasinDestination((magasinTO));
-        transfert.setMotif("deplacement 2");
+        transfert.setMotif("without 3");
         TransfertLine line = new TransfertLine();
         line.setArticle(article);
-        line.setMootif("aucun motif 2 ");
+        line.setMootif("without 4 ");
         line.setCreationDate(time);
         transfert.addLine(line);
         article.setMagasin(magasinTO);
