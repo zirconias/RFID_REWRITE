@@ -1,12 +1,45 @@
 package com.icosnet.rfid.domain.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by xirconias on 01/05/15.
  */
 @Entity
-@Table(name = "TRANSFERT")
+@Table(name = "TRANSFERT_LINE")
 public class TransfertLine extends AbstractEntity  {
+
+    private String mootif;
+
+    @Column(name = "MOTIF")
+    public String getMootif() {
+        return mootif;
+    }
+
+    public void setMootif(String mootif) {
+        this.mootif = mootif;
+    }
+
+    /*private Article article;
+    //private Transfert transfert;
+
+    @OneToOne (cascade=CascadeType.ALL)
+    @JoinColumn(name="ARTICLE_ID")
+    public Article getArticle() {
+        return article;
+    }
+
+    public void setArticle(Article article) {
+        this.article = article;
+    }
+*/
+/*
+    @ManyToOne
+    public Transfert getTransfert() {
+        return transfert;
+    }
+
+    public void setTransfert(Transfert transfert) {
+        this.transfert = transfert;
+    }*/
 }

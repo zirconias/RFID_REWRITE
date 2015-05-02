@@ -6,6 +6,8 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.joda.time.DateTime;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by xirconias on 01/05/15.
@@ -16,11 +18,11 @@ public class Transfert extends AbstractEntity  {
 
     private String bonTransfer;
     private DateTime transfertDate;
-
     private Magasin magasinOrigin;
     private Magasin magasinDestination;
-
     private String motif;
+    private List<TransfertLine> lines = new ArrayList<>();
+
 
 
     @Column(name = "TRANSFERT_DATE")
@@ -50,6 +52,7 @@ public class Transfert extends AbstractEntity  {
     }
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = false)
+    @JoinColumn(name = "MAGASIN_ORIGIN")
     public Magasin getMagasinOrigin() {
         return magasinOrigin;
     }
@@ -58,6 +61,7 @@ public class Transfert extends AbstractEntity  {
     }
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = false)
+    @JoinColumn(name = "MAGASIN_DESTINATION")
     public Magasin getMagasinDestination() {
         return magasinDestination;
     }
@@ -65,6 +69,20 @@ public class Transfert extends AbstractEntity  {
         this.magasinDestination = magasinDestination;
     }
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name="TRANSFERT_ID")
+    public List<TransfertLine> getLines() {
+        return lines;
+    }
+
+    public void setLines(List<TransfertLine> lines) {
+        this.lines = lines;
+    }
+
+    public Transfert addLine(TransfertLine line){
+        this.lines.add(line);
+        return this;
+    }
 
     @Transient
     public String getTransfertDateString() {
