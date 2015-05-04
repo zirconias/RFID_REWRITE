@@ -6,6 +6,7 @@ import com.icosnet.rfid.domain.model.Product;
 import com.icosnet.rfid.domain.repository.MagasinRepository;
 import com.icosnet.rfid.domain.repository.PersistenceConfig;
 import com.icosnet.rfid.util.MagasinType;
+import org.joda.time.DateTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,16 +43,13 @@ public class MagasinTest {
     @Test
     public void add_Magasin(){
         MagasinType type =MagasinType.PRINCIPAL;
-        Magasin magasin = new Magasin();
-        magasin.setDescr("descr 2");
-        magasin.setLibelle("libelle 3");
-        magasin.setLocalisation("my location 3");
-        magasin.setType(type);
+
+        Magasin magasin = new Magasin("libelle lt","my descr",type,"loc loc");
         magasin.setCreationDate(new java.sql.Timestamp(new java.util.Date().getTime()));
         assertThat(magasin,is(repository.save(magasin)));
         //second magasin
         type= MagasinType.MOBILE;
-        Magasin mag2= new Magasin();
+        Magasin mag2= new Magasin("libelle lt "+new DateTime(),"my descr"+new DateTime(),type,"loc loc"+new DateTime());
         mag2.setType(type);
         mag2.setCreationDate(new java.sql.Timestamp(new java.util.Date().getTime()));
         mag2.setDescr("descr 2");
