@@ -4,6 +4,8 @@ import org.springframework.util.Assert;
 
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.HashMap;
@@ -12,16 +14,18 @@ import java.util.Map;
 /**
  * Created by xirconias on 03/05/15.
  */
+@Entity
+@Table(name = "PROPRODUCT")
 public class ProProduct extends AbstractEntity  {
 
-    @Column(nullable = false)
+
     private String name;
     private String description;
 
-    @Column(nullable = false)
+
     private BigDecimal price;
 
-    @ElementCollection
+
     private Map<String, String> attributes = new HashMap<String, String>();
 
     public ProProduct(String name, BigDecimal price) {
@@ -38,6 +42,7 @@ public class ProProduct extends AbstractEntity  {
     protected ProProduct() {
     }
 
+    @Column(nullable = false)
     public String getName() {
         return name;
     }
@@ -46,6 +51,7 @@ public class ProProduct extends AbstractEntity  {
         this.name = name;
     }
 
+    @Column(nullable = false)
     public String getDescription() {
         return description;
     }
@@ -54,6 +60,7 @@ public class ProProduct extends AbstractEntity  {
         this.description = description;
     }
 
+    @Column(nullable = false)
     public BigDecimal getPrice() {
         return price;
     }
@@ -62,6 +69,7 @@ public class ProProduct extends AbstractEntity  {
         this.price = price;
     }
 
+    @ElementCollection
     public Map<String, String> getAttributes() {
         return Collections.unmodifiableMap(attributes);
     }
@@ -73,5 +81,9 @@ public class ProProduct extends AbstractEntity  {
         } else {
             this.attributes.put(name, value);
         }
+    }
+
+    public void setAttributes(Map<String, String> attributes) {
+        this.attributes = attributes;
     }
 }
