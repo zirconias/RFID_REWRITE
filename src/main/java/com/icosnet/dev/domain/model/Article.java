@@ -16,12 +16,9 @@ public class Article extends AbstractEntity {
     private Product product;
     private Magasin magasin;
 
-    @Column(name = "TAKEN", nullable = false)
-    @Type(type = "yes_no")
     private boolean taken = false;
 
-    @Column(name = "BLOCKED", nullable = false)
-    @Type(type = "yes_no")
+
     private boolean blocked = false;
 
     public String getIdRFID() {
@@ -60,6 +57,8 @@ public class Article extends AbstractEntity {
         this.magasin = magasin;
     }
 
+    @Column(name = "TAKEN", nullable = false)
+    @Type(type = "yes_no")
     public boolean isTaken() {
         return taken;
     }
@@ -68,6 +67,8 @@ public class Article extends AbstractEntity {
         this.taken = taken;
     }
 
+    @Column(name = "BLOCKED", nullable = false)
+    @Type(type = "yes_no")
     public boolean isBlocked() {
         return blocked;
     }
